@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include "test/add.h"
+#include "shell/execution_loop.h"
 
 int main() {
-	printf("SASH\n");
-	printf("%d", add(2, 1));
+	loop();
 	return 0;
 }
