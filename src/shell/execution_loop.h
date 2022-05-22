@@ -2,6 +2,7 @@
 #include <string.h>
 
 #include "commands/echo.h"
+#include "commands/pwd.h"
 
 #define ARG_CAPACITY 16
 
@@ -15,6 +16,8 @@ void execute_args(char** arguments) {
 	//TODO: ADD MORE CASES FOR OTHER COMMANDS HERE
 	if (strings_equal(command, "echo")) {
 		echo(arguments);
+	} else if(strings_equal(command, "pwd")) {
+		get_pwd();
 	} else {
 		printf("[ERROR] Command does not exist.\n");
 	}
