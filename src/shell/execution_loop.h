@@ -6,6 +6,7 @@
 #include "commands/ls.h"
 #include "commands/chdir.h"
 #include "commands/mkdir.h"
+#include "commands/rmdir.h"
 
 #define ARG_CAPACITY 16
 
@@ -28,6 +29,8 @@ void execute_args(char** arguments) {
 		get_pwd();
 	} else if (strings_equal(command, "mkdir")) {
 		create_directory(arguments);
+	} else if (strings_equal(command, "rmdir")) {
+		remove_directory(arguments);
 	} else {
 		printf("[ERROR] Command does not exist.\n");
 	}
