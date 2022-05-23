@@ -17,5 +17,5 @@ void get_pwd(void) {
 			perror("getcwd");
 		}
 	}
-	printf("\n%s\n", path);
+	printf("\n\nCurrent Directory: %s\n\n", path);
 }

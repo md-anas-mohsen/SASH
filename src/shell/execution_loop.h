@@ -3,6 +3,8 @@
 
 #include "commands/echo.h"
 #include "commands/pwd.h"
+#include "commands/ls.h"
+#include "commands/chdir.h"
 
 #define ARG_CAPACITY 16
 
@@ -17,6 +19,11 @@ void execute_args(char** arguments) {
 	if (strings_equal(command, "echo")) {
 		echo(arguments);
 	} else if(strings_equal(command, "pwd")) {
+		get_pwd();
+	} else if (strings_equal(command, "ls")) {
+		list_dir();
+	} else if(strings_equal(command, "cd")) {
+		change_dir(arguments);
 		get_pwd();
 	} else {
 		printf("[ERROR] Command does not exist.\n");
