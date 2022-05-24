@@ -7,6 +7,11 @@
 #include "commands/chdir.h"
 #include "commands/mkdir.h"
 #include "commands/rmdir.h"
+#include "commands/touch.h"
+#include "commands/cat.h"
+#include "commands/rm.h"
+
+
 
 #define ARG_CAPACITY 16
 
@@ -31,7 +36,16 @@ void execute_args(char** arguments) {
 		create_directory(arguments);
 	} else if (strings_equal(command, "rmdir")) {
 		remove_directory(arguments);
-	} else {
+	} else if (strings_equal(command, "touch")) {
+		touch(arguments);
+	}
+	else if (strings_equal(command, "cat")) {
+		cat(arguments);
+	}
+	else if (strings_equal(command, "rm")) {
+		rm(arguments);
+	}
+	else {
 		printf("[ERROR] Command does not exist.\n");
 	}
 
