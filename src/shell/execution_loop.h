@@ -10,6 +10,7 @@
 #include "commands/touch.h"
 #include "commands/cat.h"
 #include "commands/rm.h"
+#include "commands/copy.h"
 
 
 
@@ -44,8 +45,9 @@ void execute_args(char** arguments) {
 	}
 	else if (strings_equal(command, "rm")) {
 		rm(arguments);
-	}
-	else {
+	} else if(strings_equal(command, "copy")) {
+		copy_file(arguments);
+	} else {
 		printf("[ERROR] Command does not exist.\n");
 	}
 
