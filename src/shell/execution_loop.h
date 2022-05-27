@@ -12,6 +12,7 @@
 #include "commands/rm.h"
 #include "commands/copy.h"
 #include "commands/write.h"
+#include "commands/help.h"
 
 
 
@@ -54,6 +55,8 @@ void execute_args(char** arguments, char* line) {
 			list_dir();
 		} else if(strings_equal(command, "exit")) {
 			exit(0);
+		} else if (strings_equal(command, "help")) {
+			show_help();
 		} else {
 			printf("[ERROR] Command does not exist.\n");
 		}
@@ -62,7 +65,9 @@ void execute_args(char** arguments, char* line) {
 }
 
 int loop() {
-	printf("Welcome to SASH! the best shell on the planet! \n");
+	printf("|----- S A S H (Shahreyar and Anas Shell) ------|\n");
+	printf("|Welcome to SASH! the best shell on the planet! |\n");
+	printf("|----Coded by Anas Mohsen and Shahreyar Raza----|\n\n");
 	while(1){
 		printf("$ ");
 		char *line = NULL;
