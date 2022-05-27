@@ -11,6 +11,7 @@
 #include "commands/cat.h"
 #include "commands/rm.h"
 #include "commands/copy.h"
+#include "commands/write.h"
 
 
 
@@ -42,11 +43,12 @@ void execute_args(char** arguments) {
 	}
 	else if (strings_equal(command, "cat")) {
 		cat(arguments);
-	}
-	else if (strings_equal(command, "rm")) {
+	} else if (strings_equal(command, "rm")) {
 		rm(arguments);
 	} else if(strings_equal(command, "copy")) {
 		copy_file(arguments);
+	} else if(strings_equal(command, "writeto")) {
+		write_to_file(arguments);
 	} else {
 		printf("[ERROR] Command does not exist.\n");
 	}
