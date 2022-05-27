@@ -6,25 +6,6 @@
 
 void cat(char** arguments)
 {
-  // char *file_name = arguments[1];
-  // struct stat st = {0};
-  // FILE * fd;
-
-  // if (stat(file_name, &st) == 0) {
-  //   fd=fopen(file_name,"r");
-
-  //   if (fd != NULL) {
-  //     char ch;
-  //     while ((ch=fgetc(fd))!=EOF) {
-  //       printf("%c",ch);
-  //     }  
-
-  //     fclose(fd);
-  //     printf("\n");
-  //   }
-  // } else {
-  //   printf("\n[ERROR] File does not exist or is empty.\n");
-  // }
   struct stat st = {0};
 
   int arg_number = 2;

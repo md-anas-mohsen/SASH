@@ -9,14 +9,6 @@
 
 void rm(char**arguments)
 {
-
-  
- //  if(remove(arguments[1]) != 0)
- //  {
-	// fprintf(stderr, "Errno: %d\n", errno);
-	// perror("[ERROR]");
- //  }
- //  else printf("%s deleted \n",arguments[1]);
   struct stat st = {0};
 
   int arg_number = 2;
@@ -35,18 +27,6 @@ void rm(char**arguments)
   file_path[strlen(file_path)-1] = '\0';
 
   if (stat(file_path, &st) == 0) {
-    // FILE *fd;
-    // fd=fopen(file_path,"r");
-    // if (fd != NULL) {
-    //   char ch;
-    //   while ((ch=fgetc(fd))!=EOF) {
-    //     printf("%c",ch);
-    //   }  
-
-    //   fclose(fd);
-    //   printf("\n");
-    // }
-    // fclose(fd);
     if(remove(file_path) != 0) {
       fprintf(stderr, "Errno: %d\n", errno);
       perror("[ERROR]");

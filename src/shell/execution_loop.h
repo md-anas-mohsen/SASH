@@ -21,16 +21,12 @@ int strings_equal(char* input, char* command) {
 	return strcmp(input, command) == 0; 
 }
 
-void execute_args(char** arguments) {
+void execute_args(char** arguments, char* line) {
 	char* command = arguments[0];
 
 	//TODO: ADD MORE CASES FOR OTHER COMMANDS HERE
 	if (strings_equal(command, "echo")) {
 		echo(arguments);
-	} else if(strings_equal(command, "pwd")) {
-		get_pwd();
-	} else if (strings_equal(command, "ls")) {
-		list_dir();
 	} else if(strings_equal(command, "cd")) {
 		change_dir(arguments);
 		get_pwd();
@@ -50,7 +46,17 @@ void execute_args(char** arguments) {
 	} else if(strings_equal(command, "writeto")) {
 		write_to_file(arguments);
 	} else {
-		printf("[ERROR] Command does not exist.\n");
+		command = line;
+		line[strlen(line)-1] = '\0';
+		if(strings_equal(command, "pwd")) {
+			get_pwd();
+		} else if (strings_equal(command, "ls")) {
+			list_dir();
+		} else if(strings_equal(command, "exit")) {
+			exit(0);
+		} else {
+			printf("[ERROR] Command does not exist.\n");
+		}
 	}
 
 }
@@ -88,7 +94,7 @@ int loop() {
 
 		arguments[arg_number] = NULL;
 
-		execute_args(arguments);
+		execute_args(arguments, line);
 
 		// int i;
 		// for (i = 0; i < (arg_number+1); ++i) {

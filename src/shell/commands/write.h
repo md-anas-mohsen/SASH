@@ -5,13 +5,12 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-#define PATH_SIZE 200
 
 int write_to_file(char** arguments) {
 	int arg_number = 2;
 	char* argument;
 	argument = arguments[arg_number];
-	char* file_path = malloc(sizeof(char) * PATH_SIZE);
+	char* file_path = malloc(sizeof(char) * 200);
 	struct stat st = {0};
 
 	strcpy(file_path, arguments[1]);
