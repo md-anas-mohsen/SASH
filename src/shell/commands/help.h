@@ -16,4 +16,5 @@ void show_help() {
 	printf("copy 'file_name' - a prompt opens asking the name of the duplicate file.\n");
 	printf("cat 'file_name' - show file contents\n");
 	printf("rm 'file_name' - deletes the file.\n");
+	printf("filestats 'file_name' - shows the file stats such as word count, character count and line count.\n");
 }
