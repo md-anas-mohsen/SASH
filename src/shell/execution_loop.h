@@ -13,6 +13,7 @@
 #include "commands/copy.h"
 #include "commands/write.h"
 #include "commands/help.h"
+#include "commands/filestats.h"
 
 
 
@@ -46,6 +47,8 @@ void execute_args(char** arguments, char* line) {
 		copy_file(arguments);
 	} else if(strings_equal(command, "writeto")) {
 		write_to_file(arguments);
+	} else if (strings_equal(command, "filestats")) {
+		file_stats(arguments);
 	} else {
 		command = line;
 		line[strlen(line)-1] = '\0';
